@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("QuickStartWebApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+25117354c83ced8644d91d6bbf912d9a26e69d32")]
 [assembly: System.Reflection.AssemblyProductAttribute("QuickStartWebApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("QuickStartWebApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

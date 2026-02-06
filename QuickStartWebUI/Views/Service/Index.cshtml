@@ -1,0 +1,30 @@
+﻿@model List<ResultServiceDto>
+
+@{
+    Layout = null;
+}
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+<div class="container">
+    <br />
+    <br />
+    <table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Hizmet</th>
+        <th>Açıklama</th>
+        <th>Icon</th>
+        <th>İşlemler</th>
+        </tr>
+    @foreach (var item in Model)
+    {
+     <tr>
+         <td>@item.serviceId</td>
+         <td>@item.title</td>
+         <td>@item.description</td>
+         <td>@item.iconUrl</td>
+         <td><a href="/Service/DeleteService/" class="btn btn-danger">Sil</a></td>
+         <td><a href="/Service/UpdateService/" class="btn btn-warning">Güncelle</a></td>
+         </tr>
+    }
+    </table>
+</div>

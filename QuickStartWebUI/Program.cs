@@ -1,5 +1,6 @@
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddHttpClient(); //Bu olmazsa baðlantýyý kuramaz Client ile
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
