@@ -1,0 +1,77 @@
+﻿@using QuickStartWebUI.DTOs.Abouts
+@model List<ResultAboutDto>
+@{
+    ViewData["Title"] = "Hakkımızda Sayfası";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    int count = 0;
+}
+
+<div class="container-fluid pt-4 px-4">
+    <div class="bg-light text-center rounded p-4">
+        <div class="d-flex align-items-center justify-content-between mb-4">
+            <h6 class="mb-0">Hakkımızda Listesi</h6>
+            <a href="/About/CreateAbout" class="btn btn-primary">
+                <i class="fa fa-plus me-2"></i>Yeni İçerik Ekle
+            </a>
+        </div>
+        <div class="table-responsive">
+            <table class="table text-start align-middle table-bordered table-hover mb-0">
+                <thead>
+                    <tr class="text-dark">
+                        <th scope="col">#</th>
+                        <th scope="col">Görsel</th>
+                        <th scope="col">Başlık</th>
+                        <th scope="col">Açıklama</th>
+                        <th scope="col">Özellikler / Maddeler</th>
+                        <th scope="col">Sil</th>
+                        <th scope="col">Güncelle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        count++;
+                        <tr>
+                            <td>@count</td>
+                            <td>
+                                @if (!string.IsNullOrEmpty(item.ImageUrl))
+                                {
+                                    <img src="@item.ImageUrl" alt="Hakkımızda" style="width:60px; height:60px; object-fit:cover; border-radius:8px;" />
+                                }
+                                else
+                                {
+                                    <span class="badge bg-secondary">Resim Yok</span>
+                                }
+                        </td>
+                        <td>@item.Title</td>
+                        <td>
+                            @(item.Description.Length > 40
+                                                        ? item.Description.Substring(0, 40) + "..."
+                                                        : item.Description)
+                        </td>
+                        <td>
+                            <ul class="list-unstyled mb-0" style="font-size: 0.85rem;">
+                                <li><i class="fa fa-check text-success me-1"></i> @item.Options1</li>
+                                <li><i class="fa fa-check text-success me-1"></i> @item.Options2</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <a class="btn btn-sm btn-outline-danger"
+                               href="/About/DeleteAbout/@item.AboutId"
+                               onclick="return confirm('Bu içeriği silmek istediğinize emin misiniz?')">
+                                <i class="fa fa-trash"></i>
+                            </a>
+                        </td>
+                        <td>
+                            <a class="btn btn-sm btn-outline-info"
+                               href="/About/UpdateAbout/@item.AboutId">
+                                <i class="fa fa-edit"></i>
+                            </a>
+                        </td>
+                    </tr>
+                                        }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

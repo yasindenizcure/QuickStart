@@ -1,0 +1,41 @@
+﻿@model QuickStartWebUI.DTOs.Abouts.CreateAboutDto
+@{
+    ViewData["Title"] = "Yeni Hakkımızda İçeriği";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-sm-12 col-xl-12">
+            <div class="bg-light rounded h-100 p-4">
+                <h6 class="mb-4">Yeni Hakkımızda İçeriği Oluştur</h6>
+                <form method="post" asp-area="Admin" asp-controller="About" asp-action="CreateAbout">
+                    <div class="mb-3">
+                        <label class="form-label">Başlık</label>
+                        <input type="text" asp-for="Title" class="form-control" placeholder="Başlığı giriniz">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Görsel URL</label>
+                        <input type="text" asp-for="ImageUrl" class="form-control" placeholder="Resim linkini yapıştırın">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Açıklama</label>
+                        <textarea asp-for="Description" rows="4" class="form-control" placeholder="Hakkımızda detaylarını yazın..."></textarea>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Özellik / Madde 1</label>
+                            <input type="text" asp-for="Options1" class="form-control" placeholder="Örn: 7/24 Destek">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Özellik / Madde 2</label>
+                            <input type="text" asp-for="Options2" class="form-control" placeholder="Örn: Profesyonel Ekip">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">İçeriği Kaydet</button>
+                    <a href="/Admin/About/Index" class="btn btn-secondary">Vazgeç</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

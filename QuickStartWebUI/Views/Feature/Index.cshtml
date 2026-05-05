@@ -1,0 +1,60 @@
+﻿@using QuickStartWebUI.DTOs.Features
+@model List<ResultFeatureDto>
+@{
+    ViewData["Title"] = "Özellik Listesi";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    int count = 0;
+}
+
+<div class="container-fluid pt-4 px-4">
+    <div class="bg-light text-center rounded p-4">
+        <div class="d-flex align-items-center justify-content-between mb-4">
+            <h6 class="mb-0">Özellik Listesi</h6>
+            <a href="/Feature/CreateFeature" class="btn btn-primary">
+                <i class="fa fa-plus me-2"></i>Yeni Özellik Ekle
+            </a>
+        </div>
+        <div class="table-responsive">
+            <table class="table text-start align-middle table-bordered table-hover mb-0">
+                <thead>
+                    <tr class="text-dark">
+                        <th scope="col">#</th>
+                        <th scope="col">İkon</th>
+                        <th scope="col">Başlık</th>
+                        <th scope="col">Sayı / Değer</th>
+                        <th scope="col">Sil</th>
+                        <th scope="col">Güncelle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        count++;
+                        <tr>
+                            <td>@count</td>
+                            <td>
+                                <i class="fa @item.IconUrl fa-2x text-primary"></i>
+                                <small class="d-block text-muted">@item.IconUrl</small>
+                            </td>
+                            <td>@item.Title</td>
+                            <td><span class="badge bg-info text-dark">@item.Number</span></td>
+                            <td>
+                                <a class="btn btn-sm btn-outline-danger"
+                                   href="/Feature/DeleteFeature/@item.FeatureId"
+                                   onclick="return confirm('Bu özelliği silmek istediğinize emin misiniz?')">
+                                    <i class="fa fa-trash"></i> Sil
+                                </a>
+                            </td>
+                            <td>
+                                <a class="btn btn-sm btn-outline-info"
+                                   href="/Feature/UpdateFeature/@item.FeatureId">
+                                    <i class="fa fa-edit"></i> Güncelle
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

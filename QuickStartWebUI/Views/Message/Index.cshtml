@@ -1,0 +1,67 @@
+﻿@model List<QuickStartWebUI.DTOs.Messages.ResultMessageDto>
+
+@{
+    ViewData["Title"] = "Gelen Mesajlar";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card shadow-sm border-0">
+        <div class="card-body">
+            <h4 class="card-title font-weight-bold">Gelen Mesajlar</h4>
+            <p class="card-description text-muted">
+                Kullanıcılardan iletişim formu aracılığıyla gelen mesajların listesi.
+            </p>
+
+            <div class="table-responsive mt-4">
+                <table class="table table-hover table-bordered">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>#</th>
+                            <th>Gönderen</th>
+                            <th>E-Posta</th>
+                            <th>Konu</th>
+                            <th>Tarih</th>
+                            <th class="text-center">İşlemler</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model != null && Model.Any())
+                        {
+                            foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td class="font-weight-bold">@item.MessageId</td>
+                                    <td>@item.Name</td>
+                                    <td>@item.Email</td>
+                                    <td>
+                                        <span class="d-inline-block text-truncate" style="max-width: 150px;" title="@item.Subject">
+                                            @item.Subject
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span class="badge badge-info text-white">@item.SendDate.ToString("dd.MM.yyyy HH:mm")</span>
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="/Message/DeleteMessage/@item.MessageId" class="btn btn-danger btn-sm" onclick="return confirm('Bu mesajı kalıcı olarak silmek istediğinize emin misiniz?');">
+                                            <i class="mdi mdi-delete"></i> Sil
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="6" class="text-center text-muted py-4">
+                                    <i class="mdi mdi-email-open-outline d-block mb-2" style="font-size: 2rem;"></i>
+                                    Gelen kutunuz boş. Henüz hiç mesaj bulunmuyor.
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

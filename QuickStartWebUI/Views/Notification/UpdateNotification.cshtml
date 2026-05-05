@@ -1,0 +1,77 @@
+﻿@model UpdateNotificationDto
+@{
+    ViewData["Title"] = "Bildirim Güncelle";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card shadow-sm" style="border-radius: 15px; border: none;">
+        <div class="card-body p-5">
+            <div class="d-flex align-items-center mb-4">
+                <div class="bg-primary-light mr-3" style="width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; background-color: rgba(75, 73, 172, 0.1);">
+                    <i class="mdi mdi-bell-ring text-primary" style="font-size: 1.5rem;"></i>
+                </div>
+                <div>
+                    <h4 class="card-title mb-0" style="font-size: 1.4rem; font-weight: 700;">Bildirim Düzenle</h4>
+                    <p class="text-muted mb-0 small">Mevcut bildirim bilgilerini güncelleyin.</p>
+                </div>
+            </div>
+
+            <form class="forms-sample" method="post">
+                <input type="hidden" asp-for="NotificationId" />
+
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="form-group mb-4">
+                            <label class="font-weight-bold text-dark">Konu / Başlık</label>
+                            <input type="text" class="form-control form-control-lg border-secondary-light" asp-for="Title"
+                                   placeholder="Başlık giriniz..." style="border-radius: 10px;">
+                            <span asp-validation-for="Title" class="text-danger small"></span>
+                        </div>
+                        <div class="form-group mb-4">
+                            <label class="font-weight-bold text-dark">Detaylı Mesaj</label>
+                            <textarea class="form-control border-secondary-light" asp-for="Content" rows="6"
+                                      placeholder="Mesaj içeriğini buraya yazın..."
+                                      style="border-radius: 10px; resize: none;"></textarea>
+                            <span asp-validation-for="Content" class="text-danger small"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="p-4" style="background-color: #f8f9fa; border-radius: 15px; border: 1px solid #edf1f2;">
+                            <div class="form-group mb-4">
+                                <label class="font-weight-bold text-dark">Bildirim Türü</label>
+                                <input type="text" class="form-control border-secondary-light" asp-for="Name"
+                                       placeholder="Örn: Uyarı, Sistem vb." style="border-radius: 10px;">
+                                <span asp-validation-for="Name" class="text-danger small"></span>
+                            </div>
+                            <div class="form-group mb-4">
+                                <label class="font-weight-bold text-dark d-block">Okunma Durumu</label>
+                                <div class="form-check form-check-flat form-check-primary">
+                                    <label class="form-check-label text-muted">
+                                        <input type="checkbox" class="form-check-input" asp-for="IsRead">
+                                        Bu bildirim okundu <i class="input-helper"></i>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="mt-4 p-3 bg-white border-left border-primary" style="border-radius: 10px; border-left-width: 4px !important;">
+                                <p class="small mb-0 text-muted">
+                                    <strong>Bilgi:</strong> Yapılan değişiklikler anında kaydedilir ve kullanıcı paneline yansır.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="my-4" style="opacity: 0.1;">
+
+                <div class="d-flex justify-content-end align-items-center">
+                    <a href="/Notification/Index" class="text-muted mr-4" style="text-decoration: none; font-weight: 600;">İptal Et</a>
+                    <button type="submit" class="btn btn-primary btn-lg px-5 shadow-sm" style="border-radius: 12px; font-weight: 600; font-size: 0.9rem;">
+                        <i class="mdi mdi-content-save-edit-outline mr-2"></i>Değişiklikleri Kaydet
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

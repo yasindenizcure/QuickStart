@@ -1,0 +1,41 @@
+﻿@model QuickStartWebUI.DTOs.Testimonials.CreateTestimonialDto
+@{
+    ViewData["Title"] = "Yeni Referans Ekle";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-sm-12 col-xl-12">
+            <div class="bg-light rounded h-100 p-4">
+                <h6 class="mb-4">Yeni Müşteri Yorumu / Referans Ekle</h6>
+                <form method="post" asp-controller="Testimonial" asp-action="CreateTestimonial">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Ad Soyad</label>
+                            <input type="text" asp-for="fullName" class="form-control" placeholder="Müşteri adı">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Unvan</label>
+                            <input type="text" asp-for="title" class="form-control" placeholder="Örn: CEO, Yazılım Mühendisi veya İstanbul">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Müşteri Görsel URL</label>
+                        <input type="text" asp-for="imageUrl" class="form-control" placeholder="https://...">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Müşteri Yorumu</label>
+                        <textarea asp-for="description" rows="5" class="form-control" placeholder="Müşterinin yorumunu buraya yazınız..."></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Müşteri Puanı</label>
+                        <input type="text" asp-for="rate" class="form-control" placeholder="5">
+                    </div>
+                    <button type="submit" class="btn btn-primary"><i class="fa fa-save me-2"></i>Referansı Kaydet</button>
+                    <a href="/Testimonial/Index" class="btn btn-secondary">Listeye Dön</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

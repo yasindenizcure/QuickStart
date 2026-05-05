@@ -1,0 +1,43 @@
+﻿@model QuickStartWebUI.DTOs.Abouts.UpdateAboutDto
+@{
+    ViewData["Title"] = "Hakkımızda Güncelle";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-sm-12 col-xl-12">
+            <div class="bg-light rounded h-100 p-4">
+                <h6 class="mb-4">Hakkımızda İçeriğini Güncelle</h6>
+                <form method="post" asp-controller="About" asp-action="UpdateAbout">
+                    <input type="hidden" asp-for="AboutId" />
+
+                    <div class="mb-3">
+                        <label class="form-label">Başlık</label>
+                        <input type="text" asp-for="Title" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Görsel URL</label>
+                        <input type="text" asp-for="ImageUrl" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Açıklama</label>
+                        <textarea asp-for="Description" rows="4" class="form-control"></textarea>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Özellik / Madde 1</label>
+                            <input type="text" asp-for="Options1" class="form-control">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Özellik / Madde 2</label>
+                            <input type="text" asp-for="Options2" class="form-control">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-success">Değişiklikleri Kaydet</button>
+                    <a href="/About/Index" class="btn btn-secondary">İptal</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

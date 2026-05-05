@@ -1,0 +1,57 @@
+﻿@model QuickStartWebUI.DTOs.Messages.CreateMessageDto
+
+<div class="container-xxl py-6">
+    <div class="container">
+        <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+            <p class="text-primary text-uppercase mb-2">// İletişim</p>
+            <h1 class="display-6 mb-4">Herhangi Bir Sorunuz Varsa Bizimle İletişime Geçin</h1>
+        </div>
+        <div class="row g-0 justify-content-center">
+            <div class="col-lg-8 wow fadeInUp" data-wow-delay="0.1s">
+                <p class="text-center mb-4">
+                    Görüş, öneri veya sorularınız için aşağıdaki formu doldurarak bize ulaşabilirsiniz.
+                    Size en kısa sürede geri dönüş yapacağız.
+                </p>
+
+                <form asp-controller="Message" asp-action="CreateMessage" method="post">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" asp-for="Name" placeholder="Adınız Soyadınız" required>
+                                <label asp-for="Name">Adınız Soyadınız</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="email" class="form-control" asp-for="Email" placeholder="E-posta Adresiniz" required>
+                                <label asp-for="Email">E-posta Adresiniz</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" asp-for="Subject" placeholder="Konu" required>
+                                <label asp-for="Subject">Konu</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-floating">
+                                <textarea class="form-control" asp-for="Detail" placeholder="Mesajınızı buraya yazın" style="height: 200px" required></textarea>
+                                <label asp-for="Detail">Mesajınız</label>
+                            </div>
+                        </div>
+                        <div class="col-12 text-center">
+                            <button class="btn btn-primary rounded-pill py-3 px-5" type="submit">Mesaj Gönder</button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-xxl py-6 px-0 wow fadeInUp" data-wow-delay="0.1s">
+    <iframe class="w-100 mb-n2" style="height: 450px;"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d192697.7932742918!2d28.872096706487295!3d41.00549580949163!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14caa7040068086b%3A0xe1ccfe98bc01b0d0!2zxLBzdGFuYnVs!5e0!3m2!1str!2str!4v1714494193563!5m2!1str!2str"
+            frameborder="0" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+</div>

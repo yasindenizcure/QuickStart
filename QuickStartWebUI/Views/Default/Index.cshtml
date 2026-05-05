@@ -1,0 +1,52 @@
+﻿
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+
+@await Component.InvokeAsync("_DefaultHeadComponentPartial")
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" role="status"></div>
+    </div>
+    <!-- Spinner End -->
+    <!-- Topbar Start -->
+    @await Component.InvokeAsync("_DefaultTopbarComponentPartial")
+    <!-- Topbar End -->
+    <!-- Navbar Start -->
+    @await Component.InvokeAsync("_DefaultNavbarComponentPartial")
+    <!-- Navbar End -->
+    <!-- Carousel Start -->
+    @await Component.InvokeAsync("_DefaultSliderComponentPartial")
+    <!-- Carousel End -->
+    <!-- Facts Start -->
+    @await Component.InvokeAsync("_DefaultFeatureComponentPartial")
+    <!-- Facts End -->
+    <!-- About Start -->
+    @await Component.InvokeAsync("_DefaultAboutComponentPartial")
+    <!-- About End -->
+    <!-- Product Start -->
+    @await Component.InvokeAsync("_DefaultProductComponentPartial")
+    <!-- Product End -->
+    <!-- Service Start -->
+    @await Component.InvokeAsync("_DefaultServiceComponentPartial")
+    <!-- Service End -->
+    <!-- Team Start -->
+    @await Component.InvokeAsync("_DefaultTeamComponentPartial")
+    <!-- Team End -->
+    <!-- Testimonial Start -->
+    @await Component.InvokeAsync("_DefaultTestimonialComponentPartial")
+    <!-- Testimonial End -->
+    @await Component.InvokeAsync("_DefaultSubscribeComponentPartial")
+
+    @await Component.InvokeAsync("_DefaultMessageComponentPartial")
+    <!-- Footer Start -->
+    @await Component.InvokeAsync("_DefaultFooterComponentPartial")
+
+    @await Component.InvokeAsync("_DefaultScriptComponentPartial")
+</body>
+
+</html>

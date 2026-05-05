@@ -1,0 +1,12 @@
+﻿namespace QuickStartWebUI.DTOs.Teams
+{
+    public class CreateTeamDto
+    {
+        public string? FullName { get; set; }
+        public string? Title { get; set; }
+        public string? SocialMedia1 { get; set; }
+        public string? SocialMedia2 { get; set; }
+        public string? SocialMedia3 { get; set; }
+        public string? ImageUrl { get; set; }
+    }
+}

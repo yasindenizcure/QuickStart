@@ -1,0 +1,26 @@
+﻿@model QuickStartWebUI.DTOs.Galleries.CreateGalleryDto
+@{
+    ViewData["Title"] = "Yeni Galeri Görseli";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-sm-12 col-xl-12">
+            <div class="bg-light rounded h-100 p-4">
+                <h6 class="mb-4">Galeriye Yeni Fotoğraf Ekle</h6>
+                <form method="post" asp-controller="Gallery" asp-action="CreateGallery">
+                    <div class="mb-3">
+                        <label class="form-label">Görsel URL Adresi</label>
+                        <input type="text" asp-for="ImageUrl" class="form-control" placeholder="https://resim-adresi.com/ornek.jpg">
+                        <div class="form-text text-muted">Görselin internet üzerindeki tam bağlantısını buraya yapıştırın.</div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fa fa-upload me-2"></i>Galeriyi Güncelle
+                    </button>
+                    <a href="/Gallery/Index" class="btn btn-secondary">İptal</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

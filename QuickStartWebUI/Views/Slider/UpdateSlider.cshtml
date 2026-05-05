@@ -1,0 +1,35 @@
+﻿@model QuickStartWebUI.DTOs.Sliders.UpdateSliderDto
+@{
+    ViewData["Title"] = "Slider Güncelle";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Slider Güncelle</h4>
+            <form class="forms-sample" method="post">
+                <input type="hidden" asp-for="SliderId" />
+
+                <div class="form-group">
+                    <label>Başlık (Küçük Üst Başlık)</label>
+                    <input type="text" class="form-control" asp-for="Title">
+                </div>
+                <div class="form-group">
+                    <label>Ana Başlık</label>
+                    <input type="text" class="form-control" asp-for="MainTitle">
+                </div>
+                <div class="form-group">
+                    <label>Görsel URL</label>
+                    <input type="text" class="form-control" asp-for="ImageUrl">
+                </div>
+                <div class="form-group">
+                    <label>Açıklama</label>
+                    <textarea class="form-control" asp-for="Description" rows="4"></textarea>
+                </div>
+                <button type="submit" class="btn btn-success mr-2">Değişiklikleri Kaydet</button>
+                <a href="/Slider/Index/" class="btn btn-light">Listeye Dön</a>
+            </form>
+        </div>
+    </div>
+</div>

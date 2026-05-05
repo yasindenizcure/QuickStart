@@ -1,0 +1,40 @@
+﻿@model List<QuickStartWebUI.DTOs.Abouts.ResultAboutDto>
+
+<div class="container-xxl py-6">
+    <div class="container">
+        @foreach (var item in Model)
+        {
+            <div class="row g-5 mb-5 align-items-center">
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="position-relative h-100">
+                        <img class="img-fluid rounded w-100" src="@item.ImageUrl" alt="@item.Title" style="object-fit: cover; min-height: 400px;">
+                    </div>
+                </div>
+
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="h-100">
+                        <p class="text-primary text-uppercase mb-2">// Hakkımızda</p>
+                        <h1 class="display-6 mb-4">@item.Title</h1>
+                        <p class="mb-4">@item.Description</p>
+                        <div class="row g-2 mb-4">
+                            <div class="col-sm-6">
+                                <i class="fa fa-check text-primary me-2"></i>@item.Options1
+                            </div>
+                            <div class="col-sm-6">
+                                <i class="fa fa-check text-primary me-2"></i>@item.Options2
+                            </div>
+                            <div class="col-sm-6">
+                                <i class="fa fa-check text-primary me-2"></i>Online Sipariş
+                            </div>
+                            <div class="col-sm-6">
+                                <i class="fa fa-check text-primary me-2"></i>Hızlı Teslimat
+                            </div>
+                        </div>
+
+                        <a class="btn btn-primary rounded-pill py-3 px-5" href="/About/Index">Devamını Oku</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
